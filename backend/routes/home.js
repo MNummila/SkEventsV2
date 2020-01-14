@@ -4,9 +4,9 @@ let router = express.Router();
 let event_controller = require('../controllers/eventController');
 
 
-router.get('/',function(req,res,next){
-    res.send('api is working');
-});
+//router.get('/',function(req,res,next){
+//    res.send('api is working');
+//});
 
 
 //GET home all data

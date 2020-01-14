@@ -16,7 +16,8 @@ exports.event_list = function(req, res, next){
     EventThing.find({}, 'eventname eventdate eventplace eventdescription')
     .exec(function (err,list_events){
         if (err) {return next(err); }
-        res.render('joku_view', {title: 'Eventlist', event_list: list_events});
+        //res.render('joku_view', {title: 'Eventlist', event_list: list_events});
+        res.send(list_events);
     });
 };
 
@@ -26,7 +27,7 @@ exports.event_list = function(req, res, next){
     
 //}
 
-//POST new event
+//POST new event/** 
 exports.event_create_post = [
     body('eventname').isLength({min:1}).trim().withMessage('Too short')
     .isAlphanumeric().withMessage('Must be alphanumeric'),
@@ -53,10 +54,10 @@ exports.event_create_post = [
         else{
             let EventTh = new EventThing(
                 {
-                    eventname: req.body.eventname,
-                    eventdate: req.body.eventdate,
-                    eventplace: req.body.eventplace,
-                    eventdescription: req.body.eventdescription
+                    eventname: 'testname',//req.body.eventname,
+                    eventdate: Date,//req.body.eventdate,
+                    eventplace: 'testplace',//req.body.eventplace,
+                    eventdescription: 'testdescription'//req.body.eventdescription
                 });
                 EventTh.save(function (err){
                     if (err) {return next(err);}
