@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Eventgroup from './Components/Eventgroup';
 import Overlay from './Components/Overlay/index';
-import AddEvent from './Components/AddEvent/AddEvent';
+import AddEvent from './Components/AddEvent/AddEventClass';
 
 
 class App extends Component {
