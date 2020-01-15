@@ -1,13 +1,52 @@
 body {
   margin: 0;
+  background-color: orange;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#eventbutton {
+
+font-size: 2rem;
+
+}
+
+.event-box {
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 10px;
+  
+
+}
+.eventgr {
+  text-align: center;
+
+  
+
+}
+.overl{
+  text-align: center;
+  margin-top: 2px;
+}
+
+.addEv{
+  margin-top: 1%;
+  margin-left: 80%;
+  margin-bottom: 5%;
+}
+#addEventButton {
+  background-color: orange;
+}
+
+
+
+
+

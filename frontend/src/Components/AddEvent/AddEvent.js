@@ -7,7 +7,7 @@ function AddEvent(props) {
 
     
 
-    const [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(false); 
 
     //const handleClose = () => setShow(false);
     //const handleShow = () => setShow(true);

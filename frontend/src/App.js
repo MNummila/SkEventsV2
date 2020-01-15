@@ -7,31 +7,63 @@ import AddEvent from './Components/AddEvent/AddEvent';
 
 
 class App extends Component {
-  constructor(props) {
-      super(props);
-      this.state = { apiResponse: "" };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            events: []
+        }
+        this.callAPI();
+    }
 
-  callAPI() {
-      fetch("http://localhost:9000/home")
-          .then(res => res.text())
-          .then(res => this.setState({ apiResponse: res }))
-          .catch(err => err);
-  }
+    callAPI() {
+        fetch("http://localhost:9000/home")
 
-  componentDidMount() {
-      this.callAPI();
-  }
+            .then(res => res.json())
 
-  render() {
-      return (
-          <div className="App">
-            <Overlay />
-            <Eventgroup/>
-            <AddEvent/>
-              <p className="App-intro">{this.state.apiResponse}</p>
-          </div>
-      );
-  }
+
+            .then(data => {
+                
+                let firstKey = Object.keys(data)[0  ], 
+                count = data[firstKey];
+                    
+                this.setState({ events: count })
+        
+                return count;
+
+            })
+
+
+            .catch(err => err);
+    }
+
+
+
+    componentDidMount() {
+        this.callAPI();
+
+    }
+
+
+    render() {
+
+        /*const events = this.state.events.map(event => (
+            <div key={event._id}>
+                <h3>name: {event.eventname}</h3>
+                <h2>date: {event.eventdate}  </h2>
+            </div>
+        ))*/
+
+
+
+
+        return (
+            <div className="App">
+                <Overlay />
+                <Eventgroup />
+                <AddEvent />
+
+            </div>
+        );
+    }
 }
 export default App;

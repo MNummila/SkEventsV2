@@ -1,25 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {
     Button, ButtonToolbar
 
-} from 'reactstrap';
+} from 'react-bootstrap';
 import Overlay from '../Overlay';
 
-function Event(props) {
-    const [modalShow, setModalShow] = React.useState(false);
-    //test
+const Event = (props) => {
+
+    const [modalShow, setModalShow] = useState(false);
     
-    
+    const date = () => {
+        
+    }
     return (
+
         //Laatikko missä näkyy tapahtuman nimi ja päivä
         <ButtonToolbar>
             <Button variant="primary" className="event-box" onClick={() => setModalShow(true)}>
-                <img src="http://www.downloadclipart.net/thumb/23297-button-orange-small-vector-thumb.png" ></img>
-                <br/>
-                Tapahtuman nimi:  {props.getName}
-                <br/>
-                Päivänmäärä: {props.getDate}
+                
+                <div key={props.eventid}>
+                    <p>{props.eventname}</p>
+                    
+                    <p>{props.eventdate}</p>
+                </div>
             </Button>
+
 
             <Overlay
                 show={modalShow}
