@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Event from '../Event';
 import { ButtonGroup } from 'reactstrap';
-import { Container } from 'react-bootstrap';
+
 
 
 
@@ -42,9 +42,9 @@ class Eventgroup extends Component {
                     <img src="skevents1.png" width="200px" height="200px"></img>
                 </div>
                 
-                {this.state.events.map((event) => {
+                {this.state.events.map((event, i) => {
                     return (
-                        <ButtonGroup>
+                        <ButtonGroup key={i}>
                             <div key={event._id}>
 
                                 <Event eventid={event._id} eventname={event.eventname} eventdate={event.eventdate} eventdescription={event.eventdescription} eventplace={event.eventplace} />

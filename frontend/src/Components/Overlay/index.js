@@ -1,18 +1,15 @@
-import React, { useState, setShow } from "react";
+import React from "react";
 import {
   Button,
   Modal,
-  ModalTitle,
   ModalBody,
   ModalFooter
 } from "react-bootstrap";
 import moment from "moment";
 
-const Overlay = props => {
-  const [modal, setModal] = useState(false);
+const Overlay = (props) => {
+  
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
     <Modal

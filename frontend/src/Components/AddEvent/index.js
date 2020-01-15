@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { FormGroup, Input, Label, Form, Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { FormGroup, Input, Label, Form, Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 class AddEvent extends Component {
 
@@ -21,16 +21,17 @@ class AddEvent extends Component {
 
     showModal = () => {
         this.setState({ show: true });
-    }
+    };
 
     hideModal = () => {
-        this.setState({ show: false });
-    }
+        this.setState(prevState => ({ 
+            show: !prevState.show 
+        }));
+    };
 
     handleSumbit(event) {
+        
         event.preventDefault();
-
-
 
         fetch("http://localhost:9000/home", {
             method: 'post',
@@ -46,17 +47,21 @@ class AddEvent extends Component {
         })
             .then(res => res.json())
             .then((data) => {
+                
                 console.log("Success");
             })
+
             .catch(err => {
                 console.error(err);
             })
+
+            
 
     }
 
 
     componentDidMount() {
-        console.log("Success");
+        
     }
 
     render() {
@@ -65,10 +70,10 @@ class AddEvent extends Component {
 
         return (
             <div className="addEv">
-                <Button id="addEventButton" onClick={() => this.showModal()}>
+                <Button id="addEventButton" onClick={this.showModal}>
                     Lisää tapahtuma
                 </Button>
-                <Modal isOpen={this.state.show} handleClose={this.hideModal}>
+                <Modal isOpen={this.state.show} toggle={this.hideModal}>
 
                     <ModalHeader>Lisää tapahtuma</ModalHeader>
                     <ModalBody>
@@ -91,8 +96,10 @@ class AddEvent extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <Label for="sumbit"></Label>
-                                <Button type="sumbit" value="Add Event" onClick={() => this.hideModal()} >OK</Button  >
+                                <Button type="sumbit" value="Add Event" onClick={() => this.hideModal()} >OK</Button>
+                                <Button onClick={this.hideModal}>Close</Button>
                             </FormGroup>
+
                         </Form>
                     </ModalBody>
                 </Modal>

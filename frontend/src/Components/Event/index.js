@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, ButtonToolbar } from "react-bootstrap";
 import Overlay from "../Overlay";
 import moment from "moment";
@@ -17,7 +17,7 @@ const Event = props => {
         <div key={props.eventid}>
           <p>{props.eventname}</p>
 
-          <p>{moment(props.eventdate).format("D MMMM HH.mm")}</p>
+          <p>{moment(props.eventdate).format("DD. MMMM HH:mm")}</p>
         </div>
       </Button>
 
