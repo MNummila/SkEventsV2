@@ -1,15 +1,12 @@
 let EventThing = require('../models/eventthing');
 const { body,validationResult } = require('express-validator');
 const { sanitizeBody } = require('express-validator');
+let authentication = require("../authServer");
+
 
 exports.index = function(req, res, next) {
     res.render('index',{title: 'testataan'});
 };
-
-//GET all events
-//exports.event_list = function(req, res ,next){
-  //  res.send('in to do list 1: event_list');
-//}
 
 //GET all events
 exports.event_list = function(req, res, next){
@@ -20,28 +17,18 @@ exports.event_list = function(req, res, next){
     });
 };
 
-//POST new event
-/*exports.event_create_post = function(req, res ,next){
-    res.send('in to do list 2: event_create_post');
-    
-}*/
-
 //POST new event/** 
 exports.event_create_post = [
-    body('eventname').isLength({min:1}).trim().withMessage('Too short')
-    .isAlphanumeric().withMessage('Must be alphanumeric'),
+    body('eventname').isLength({min:1}).trim().withMessage('Too short'),
     body('eventdate','invalid').optional({checkFalsy:true}).isISO8601(),
-    body('eventplace').isLength({min:1}).trim().withMessage('Too short')
-    .isAlphanumeric().withMessage('Must be alphanumeric'),
-    body('eventdescription').isLength({min:1}).trim().withMessage('Too short')
-    .isAlphanumeric().withMessage('Must be alphanumeric'),
+    body('eventplace').isLength({min:1}).trim().withMessage('Too short'),
+    body('eventdescription').isLength({min:1}).trim().withMessage('Too short'),
 
 
     sanitizeBody('eventname').escape(),
     sanitizeBody('eventdate').escape(),
     sanitizeBody('eventplace').escape(),
     sanitizeBody('eventdescription').escape(),
-    
     (req, res, next) => {
 
         const errors = validationResult(req);
