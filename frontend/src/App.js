@@ -49,8 +49,7 @@ class App extends Component {
         <Overlay />
         <Eventgroup />
         <AddEvent />
-        <Login/>
-        
+        <Login />
       </div>
     );
   }

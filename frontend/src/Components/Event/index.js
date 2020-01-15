@@ -1,45 +1,37 @@
-import React, { Component, useState, useEffect } from 'react';
-import {
-    Button, ButtonToolbar
+import React, { Component, useState, useEffect } from "react";
+import { Button, ButtonToolbar } from "react-bootstrap";
+import Overlay from "../Overlay";
+import moment from "moment";
 
-} from 'react-bootstrap';
-import Overlay from '../Overlay';
+const Event = props => {
+  const [modalShow, setModalShow] = useState(false);
 
-const Event = (props) => {
+  return (
+    //Laatikko missä näkyy tapahtuman nimi ja päivä
+    <ButtonToolbar>
+      <Button
+        variant="primary"
+        className="event-box"
+        onClick={() => setModalShow(true)}
+      >
+        <div key={props.eventid}>
+          <p>{props.eventname}</p>
 
-    const [modalShow, setModalShow] = useState(false);
-    
-    
-    return (
+          <p>{moment(props.eventdate).format("D MMMM HH.mm")}</p>
+        </div>
+      </Button>
 
-        //Laatikko missä näkyy tapahtuman nimi ja päivä
-        <ButtonToolbar>
-            <Button variant="primary" className="event-box" onClick={() => setModalShow(true)}>
-                
-                <div key={props.eventid}>
-                    <p>{props.eventname}</p>
-                    
-                    <p>{props.eventdate}</p>
-                </div>
-            </Button>
-
-
-            <Overlay
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                eventid={props.eventid}
-                eventname={props.eventname}
-                eventdate={props.eventdate}
-                eventplace={props.eventplace}
-                eventdescription={props.eventdescription}
-            />
-
-        </ButtonToolbar>
-
-    );
-}
-
-
-
+      <Overlay
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        eventid={props.eventid}
+        eventname={props.eventname}
+        eventdate={props.eventdate}
+        eventplace={props.eventplace}
+        eventdescription={props.eventdescription}
+      />
+    </ButtonToolbar>
+  );
+};
 
 export default Event;
