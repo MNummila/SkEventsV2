@@ -3,8 +3,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Eventgroup from "./Components/Eventgroup";
 import Overlay from "./Components/Overlay/index";
-import AddEvent from "./Components/AddEvent/AddEventClass";
-import FormI from "./Components/AddEvent/Form";
+import AddEvent from "./Components/AddEvent/index";
+
 import Login from "./Components/Login/index";
 
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
         <Eventgroup />
         <AddEvent />
         <Login/>
-        <FormI/>
+        
       </div>
     );
   }

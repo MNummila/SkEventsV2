@@ -61,7 +61,7 @@ class AddEvent extends Component {
 
     render() {
 
-        console.log({ state: this.state })
+        
 
         return (
             <div className="addEv">
