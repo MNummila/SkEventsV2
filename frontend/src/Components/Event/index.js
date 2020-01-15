@@ -9,9 +9,7 @@ const Event = (props) => {
 
     const [modalShow, setModalShow] = useState(false);
     
-    const date = () => {
-        
-    }
+    
     return (
 
         //Laatikko missä näkyy tapahtuman nimi ja päivä
@@ -29,6 +27,11 @@ const Event = (props) => {
             <Overlay
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+                eventid={props.eventid}
+                eventname={props.eventname}
+                eventdate={props.eventdate}
+                eventplace={props.eventplace}
+                eventdescription={props.eventdescription}
             />
 
         </ButtonToolbar>

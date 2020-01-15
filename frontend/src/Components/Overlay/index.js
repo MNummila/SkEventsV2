@@ -16,27 +16,22 @@ const Overlay = (props) => {
     aria-labelledby="contained-modal-title-vcenter"
     centered
   >
-    <ModalTitle closeButton>
-      {props.title}
-    </ModalTitle>
+    
     <ModalFooter>
       <Button onClick={props.onHide}>X</Button>
     </ModalFooter>
     <ModalBody>
-      <h4></h4>
+      <div key={props.eventid}>
       <p>
-        <b>Mitä: </b>
+        <b>Mitä: {props.eventname} </b>
         <br/>
-        <b>Missä: </b>
+        <b>Missä: {props.eventplace} </b>
         <br/>
-        <b>Milloin: </b>
+        <b>Milloin: {props.eventdate} </b>
         <br/>
-        <b>Mitä ja miten maksetaan?</b>
-        <br/>
-        <b>Dc: </b>
-        <br/>
-        <b>Jatkot: </b>
+        <b>Lisätiedot: {props.eventdescription}</b>
       </p>
+      </div>
     </ModalBody>
     
   </Modal>

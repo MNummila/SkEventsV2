@@ -47,7 +47,7 @@ class Eventgroup extends Component {
                         <ButtonGroup>
                             <div key={event._id}>
 
-                                <Event eventid={event._id} eventname={event.eventname} eventdate={event.eventdate} />
+                                <Event eventid={event._id} eventname={event.eventname} eventdate={event.eventdate} eventdescription={event.eventdescription} eventplace={event.eventplace} />
 
                             </div>
                         </ButtonGroup>
