@@ -16,16 +16,15 @@ exports.event_list = function(req, res, next){
     EventThing.find({}, 'eventname eventdate eventplace eventdescription')
     .exec(function (err,list_events){
         if (err) {return next(err); }
-        //res.render('joku_view', {title: 'Eventlist', event_list: list_events});
         res.send(list_events);
     });
 };
 
 //POST new event
-//exports.event_create_post = function(req, res ,next){
-  //  res.send('in to do list 2: event_create_post');
+/*exports.event_create_post = function(req, res ,next){
+    res.send('in to do list 2: event_create_post');
     
-//}
+}*/
 
 //POST new event/** 
 exports.event_create_post = [
@@ -48,20 +47,20 @@ exports.event_create_post = [
         const errors = validationResult(req);
 
         if (!errors.isEmpty()){
-            res.render('FORMI',{ title: 'create event',EventTh: req.body, errors: errors.array()});
+            res.send('unacceptable input')
             return;
         }
         else{
             let EventTh = new EventThing(
                 {
-                    eventname: 'testname',//req.body.eventname,
-                    eventdate: Date,//req.body.eventdate,
-                    eventplace: 'testplace',//req.body.eventplace,
-                    eventdescription: 'testdescription'//req.body.eventdescription
+                    eventname: req.body.eventname,
+                    eventdate: req.body.eventdate,
+                    eventplace: req.body.eventplace,
+                    eventdescription: req.body.eventdescription
                 });
                 EventTh.save(function (err){
                     if (err) {return next(err);}
-                res.redirect('/index');
+                res.redirect('/home');
                 });
         }
     }
