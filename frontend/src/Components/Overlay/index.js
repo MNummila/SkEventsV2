@@ -1,13 +1,11 @@
-import React, { useState, setShow } from 'react';
-import { Button, Modal, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap';
+import React from 'react';
+import { Button, Modal, ModalBody, ModalFooter } from 'react-bootstrap';
 
 const Overlay = (props) => {
 
 
-  const [modal, setModal] = useState(false);
+  
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
       <Modal
