@@ -47,11 +47,11 @@ app.post("/login", async (req, res) => {
       res.json({ accessToken: accessToken, refreshToken: refreshToken });
     } else {
       // salasana väärin
-      res.send('Kirjautuminen epäonnistui')
+      res.send("Kirjautuminen epäonnistui");
     }
   } catch {
     res.status(500).send();
-  }  
+  }
 });
 
 // generoidaan accessTokeni, joka umpeutuu tunnin päästä
@@ -59,25 +59,25 @@ function generateAccessToken(user) {
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1h" });
 }
 
-// dev ratkaisu 
+// dev ratkaisu
 app.listen(4000);
 
 // Tässsä sit esimerkki miten toimii huom. toi authenticateToken kohta
-app.get('/posts', authenticateToken, (req, res) => {
-    // anna lisää tapahtuma
-})
+app.get("/posts", authenticateToken, (req, res) => {
+  // anna lisää tapahtuma
+});
 
-// tässä vielä se osa mikä tarkistaa onko oikee tokeni 
+// tässä vielä se osa mikä tarkistaa onko oikee tokeni
 function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.sendStatus(401)
-  
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-      console.log(err)
-      if (err) return res.sendStatus(403)
-      req.user = user
-      // nyt on onnisteesti tarkistettu joten voidaan siirtyä eteenpäin
-      next()
-    })
-  }
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    console.log(err);
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    // nyt on onnisteesti tarkistettu joten voidaan siirtyä eteenpäin
+    next();
+  });
+}

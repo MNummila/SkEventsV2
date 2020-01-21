@@ -1,45 +1,38 @@
-import React, { useState } from 'react';
-import {
-    Button, ButtonToolbar
+import React, { useState } from "react";
+import { ButtonToolbar } from "react-bootstrap";
+import Overlay from "../Overlay";
+import moment from "moment";
+import {Button, ButtonGroup} from "@material-ui/core";
 
-} from 'react-bootstrap';
-import Overlay from '../Overlay';
+const Event = props => {
+  const [modalShow, setModalShow] = useState(false);
 
-const Event = (props) => {
+  return (
+    //Laatikko missä näkyy tapahtuman nimi ja päivä
+    <ButtonGroup style={{backgroundColor: "orange", marginTop: "10px", marginRight: "10px" }}>
+      <Button
+        variant="primary"
+        className="event-box"
+        onClick={() => setModalShow(true)}
+      >
+        <div key={props.eventid}>
+          <p>{props.eventname}</p>
 
-    const [modalShow, setModalShow] = useState(false);
-    
-    
-    return (
+          <p>{moment(props.eventdate).format("DD. MMMM HH:mm")}</p>
+        </div>
+      </Button>
 
-        //Laatikko missä näkyy tapahtuman nimi ja päivä
-        <ButtonToolbar>
-            <Button variant="primary" className="event-box" onClick={() => setModalShow(true)}>
-                
-                <div key={props.eventid}>
-                    <p>{props.eventname}</p>
-                    
-                    <p>{props.eventdate}</p>
-                </div>
-            </Button>
-
-
-            <Overlay
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                eventid={props.eventid}
-                eventname={props.eventname}
-                eventdate={props.eventdate}
-                eventplace={props.eventplace}
-                eventdescription={props.eventdescription}
-            />
-
-        </ButtonToolbar>
-
-    );
-}
-
-
-
+      <Overlay
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        eventid={props.eventid}
+        eventname={props.eventname}
+        eventdate={props.eventdate}
+        eventplace={props.eventplace}
+        eventdescription={props.eventdescription}
+      />
+    </ButtonGroup>
+  );
+};
 
 export default Event;
