@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Eventgroup from "./Components/Eventgroup";
-import Overlay from "./Components/Overlay/index";
 import AddEvent from "./Components/AddEvent/index";
-
 import WeekView from "./Components/WeekEvents";
 import AppNav from "./Components/AppNav";
 
@@ -50,11 +48,10 @@ class App extends Component {
         <AppNav />
         <AddEvent />
         <div className="image">
-          <img src="skevents1.png" width="200px" height="200px"></img>
+          <img src="skevents1.png" width="200px" height="200px" alt=""></img>
         </div>
         <Eventgroup />
         <WeekView />
-
       </div>
     );
   }

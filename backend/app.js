@@ -8,7 +8,7 @@ let cors = require("cors");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 let homerouter = require("./routes/home");
-let loginrouter = require("./routes/login");
+let loginrouter = require("./routes/auth");
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/login", loginrouter);
+app.use("/auth", loginrouter);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/home", homerouter);

@@ -11,8 +11,6 @@ import {
   ModalHeader
 } from "reactstrap";
 
-
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +36,7 @@ class Login extends Component {
   handleSumbit(event) {
     event.preventDefault();
 
-    fetch(" http://localhost:9000/login", {
+    fetch(" http://localhost:9000/auth/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -50,9 +48,10 @@ class Login extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        //console.log(data);
         localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("accessToken", data.refreshToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
+        this.setState({ show: false });
       })
 
       .catch(err => {
@@ -63,7 +62,11 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <Button id="loginButton" onClick={this.showModal} style = {{backgroundColor: "orange"}}>
+        <Button
+          id="loginButton"
+          onClick={this.showModal}
+          style={{ backgroundColor: "orange" }}
+        >
           Kirjaudu sisään
         </Button>
         <Modal isOpen={this.state.show} toggle={this.hideModal}>

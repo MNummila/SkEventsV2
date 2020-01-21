@@ -1,40 +1,31 @@
 import React from "react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalFooter
-} from "react-bootstrap";
+import { Button, Modal, ModalFooter } from "react-bootstrap";
 import moment from "moment";
 import { Card, CardContent, CardMedia, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: 345
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "56.25%" // 16:9
   },
   expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest
+    })
   },
   expandOpen: {
-    transform: 'rotate(180deg)',
+    transform: "rotate(180deg)"
   },
-  avatar: {
-
-  },
+  avatar: {}
 }));
 
-
-const Overlay = (props) => {
+const Overlay = props => {
   const classes = useStyles();
-
 
   return (
     <Modal
@@ -47,26 +38,27 @@ const Overlay = (props) => {
         <Button onClick={props.onHide}>X</Button>
       </ModalFooter>
       <Card>
-        <CardMedia 
-          className = {classes.media}
-          image = "https://www.sumikshamart.com/wp-content/uploads/2019/06/orange-200x200.png"
-          title = "orange"
+        <CardMedia
+          className={classes.media}
+          image="https://www.sumikshamart.com/wp-content/uploads/2019/06/orange-200x200.png"
+          title="orange"
         />
 
-        
-      <CardContent>
-        <div key={props.eventid}>
-          <p>
-            <b>Mitä: {props.eventname} </b>
-            <br />
-            <b>Missä: {props.eventplace} </b>
-            <br />
-            <b>Milloin: {moment(props.eventdate).format("D MMMM YYYY HH.mm")} </b>
-            <br />
-            <b>Lisätiedot: {props.eventdescription}</b>
-          </p>
-        </div>
-      </CardContent>
+        <CardContent>
+          <div key={props.eventid}>
+            <p>
+              <b>Mitä: {props.eventname} </b>
+              <br />
+              <b>Missä: {props.eventplace} </b>
+              <br />
+              <b>
+                Milloin: {moment(props.eventdate).format("D MMMM YYYY HH.mm")}{" "}
+              </b>
+              <br />
+              <b>Lisätiedot: {props.eventdescription}</b>
+            </p>
+          </div>
+        </CardContent>
       </Card>
     </Modal>
   );

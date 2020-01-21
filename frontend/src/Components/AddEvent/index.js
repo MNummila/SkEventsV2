@@ -37,13 +37,16 @@ class AddEvent extends Component {
     }));
   };
 
-  //Request POST 
+  //Request POST
   handleSumbit(event) {
     event.preventDefault();
-    
+
     fetch("http://localhost:9000/home", {
       method: "post",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("accessToken")
+      },
       body: JSON.stringify({
         eventname: this.state.eventname,
         eventdate: this.state.eventdate,
@@ -61,7 +64,7 @@ class AddEvent extends Component {
       });
   }
 
-componentDidUpdate() {}
+  componentDidUpdate() {}
 
   render() {
     return (
@@ -106,7 +109,6 @@ componentDidUpdate() {}
                   type="textarea"
                   name="desc"
                   placeholder="Tapahtuman tiedot"
-                  
                   onChange={e =>
                     this.setState({ eventdescription: e.target.value })
                   }
@@ -121,7 +123,9 @@ componentDidUpdate() {}
                 >
                   OK
                 </Button>
-                <Button className="closeBtn" onClick={this.hideModal}>Close</Button>
+                <Button className="closeBtn" onClick={this.hideModal}>
+                  Close
+                </Button>
               </FormGroup>
             </Form>
           </ModalBody>
