@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Button, ButtonToolbar } from "react-bootstrap";
+
 import Overlay from "../Overlay";
 import moment from "moment";
+import {Button, ButtonGroup} from "@material-ui/core";
 
 const Event = props => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     //Laatikko missä näkyy tapahtuman nimi ja päivä
-    <ButtonToolbar>
+    <ButtonGroup style={{backgroundColor: "orange", marginTop: "10px", marginRight: "10px" }}>
       <Button
         variant="primary"
         className="event-box"
@@ -30,7 +31,7 @@ const Event = props => {
         eventplace={props.eventplace}
         eventdescription={props.eventdescription}
       />
-    </ButtonToolbar>
+    </ButtonGroup>
   );
 };
 

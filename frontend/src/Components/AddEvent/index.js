@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 
 class AddEvent extends Component {
+  //Määritellään staten attribuutit.
   constructor(props) {
     super(props);
     this.state = {
@@ -29,15 +30,17 @@ class AddEvent extends Component {
     this.setState({ show: true });
   };
 
+  //
   hideModal = () => {
     this.setState(prevState => ({
       show: !prevState.show
     }));
   };
 
+  //Request POST 
   handleSumbit(event) {
     event.preventDefault();
-
+    
     fetch("http://localhost:9000/home", {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -58,7 +61,7 @@ class AddEvent extends Component {
       });
   }
 
-  componentDidMount() {}
+componentDidUpdate() {}
 
   render() {
     return (
@@ -66,6 +69,7 @@ class AddEvent extends Component {
         <Button id="addEventButton" onClick={this.showModal}>
           Lisää tapahtuma
         </Button>
+        {/*Form avautuu sivun päälle*/}
         <Modal isOpen={this.state.show} toggle={this.hideModal}>
           <ModalHeader>Lisää tapahtuma</ModalHeader>
           <ModalBody>
@@ -116,7 +120,7 @@ class AddEvent extends Component {
                 >
                   OK
                 </Button>
-                <Button onClick={this.hideModal}>Close</Button>
+                <Button className="closeBtn" onClick={this.hideModal}>Close</Button>
               </FormGroup>
             </Form>
           </ModalBody>

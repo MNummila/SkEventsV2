@@ -5,7 +5,8 @@ import Eventgroup from "./Components/Eventgroup";
 import Overlay from "./Components/Overlay/index";
 import AddEvent from "./Components/AddEvent/index";
 
-import Login from "./Components/Login/index";
+import WeekView from "./Components/WeekEvents";
+import AppNav from "./Components/AppNav";
 
 class App extends Component {
   constructor(props) {
@@ -46,10 +47,13 @@ class App extends Component {
 
     return (
       <div className="App">
+        <AppNav/>
         <Overlay />
+        
         <Eventgroup />
         <AddEvent />
-        <Login />
+        <WeekView/>
+        
       </div>
     );
   }

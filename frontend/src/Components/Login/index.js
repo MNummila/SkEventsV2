@@ -11,6 +11,8 @@ import {
   ModalHeader
 } from "reactstrap";
 
+
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -61,7 +63,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <Button id="loginButton" onClick={this.showModal}>
+        <Button id="loginButton" onClick={this.showModal} style = {{backgroundColor: "orange"}}>
           Kirjaudu sisään
         </Button>
         <Modal isOpen={this.state.show} toggle={this.hideModal}>
