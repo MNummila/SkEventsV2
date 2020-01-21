@@ -106,6 +106,7 @@ componentDidUpdate() {}
                   type="textarea"
                   name="desc"
                   placeholder="Tapahtuman tiedot"
+                  
                   onChange={e =>
                     this.setState({ eventdescription: e.target.value })
                   }

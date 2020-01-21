@@ -7,9 +7,10 @@ import {Button, ButtonGroup} from "@material-ui/core";
 const Event = props => {
   const [modalShow, setModalShow] = useState(false);
 
+
   return (
     //Laatikko missä näkyy tapahtuman nimi ja päivä
-    <ButtonGroup style={{backgroundColor: "orange", marginTop: "10px", marginRight: "10px" }}>
+    <ButtonGroup  id = "boxesGroup" style={{backgroundColor: "orange"}}>
       <Button
         variant="primary"
         className="event-box"
@@ -17,7 +18,8 @@ const Event = props => {
         style={{textTransform: "none"}}
       >
         <div key={props.eventid}>
-          <p>{props.eventname}</p>
+          
+          <p id="eventName">{props.eventname}</p>
 
           <p>{moment(props.eventdate).format("DD. MMMM YYYY HH:mm")}</p>
         </div>

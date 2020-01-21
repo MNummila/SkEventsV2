@@ -10,10 +10,12 @@ body  {
 
 #body {
   background-color: #DEDFE3;
+
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
 }
 
 #eventbutton {
@@ -22,20 +24,27 @@ font-size: 2rem;
 
 }
  
+#eventName{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 
 
 .event-box {
   text-align: center;
-  margin-top: 50px;
-  margin-left: 10px;
+  
+  font-size: 25px;
   width: 300px;
+  height: 150px;
   background-color: orange;
   
   
 }
 .eventgr {
   text-align: center;
-  margin-right: 10%;
+  
   
 }
 .box {
@@ -43,9 +52,13 @@ font-size: 2rem;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  margin-left: 15%;
-  width: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  
+  width: 80%;
+  overflow: auto;
   margin-bottom: 100px;
+
   
   
   
@@ -74,6 +87,10 @@ font-size: 2rem;
 .image {
   text-align: center;
   margin-top: 10px;
+}
+
+#boxesGroup {
+  margin: 10px 10px 10px 10px;
 }
 
 
