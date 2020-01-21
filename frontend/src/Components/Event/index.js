@@ -18,7 +18,7 @@ const Event = props => {
         <div key={props.eventid}>
           <p>{props.eventname}</p>
 
-          <p>{moment(props.eventdate).format("DD. MMMM HH:mm")}</p>
+          <p>{moment(props.eventdate).format("DD. MMMM YYYY HH:mm")}</p>
         </div>
       </Button>
 

@@ -13,6 +13,7 @@ exports.event_list = function(req, res, next){
     EventThing.find({}, 'eventname eventdate eventplace eventdescription')
     .exec(function (err,list_events){
         if (err) {return next(err); }
+        list_events.sort((a, b) => (a.eventdate > b.eventdate) ? 1 : (a.eventdate === b.eventdate) ? ((a.size > b.size) ? 1 : -1) : -1 )
         res.send(list_events);
     });
 };
