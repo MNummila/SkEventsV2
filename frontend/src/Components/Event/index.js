@@ -14,6 +14,7 @@ const Event = props => {
         variant="primary"
         className="event-box"
         onClick={() => setModalShow(true)}
+        style={{textTransform: "none"}}
       >
         <div key={props.eventid}>
           <p>{props.eventname}</p>

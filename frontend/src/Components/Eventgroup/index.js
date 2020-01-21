@@ -32,12 +32,11 @@ class Eventgroup extends Component {
     }
     render() {
 
+        let object = [];
         return (
             
             <div className="eventgr">
-                <div className="image">
-                    <img src="skevents1.png" width="200px" height="200px"></img>
-                </div>
+                
                 <div className="box">
                 {this.state.events.map((event, i) => {
                     return (
@@ -45,7 +44,8 @@ class Eventgroup extends Component {
                         <ButtonGroup key={i}>
                             
                             <div key={event._id}>
-
+                        
+                            
                                 <Event 
                                 eventid={event._id} 
                                 eventname={event.eventname} 
