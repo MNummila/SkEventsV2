@@ -8,12 +8,13 @@ export default class AppNav extends Component {
     useStyles = makeStyles(theme => ({
         root: {
             flexGrow: 1,
+            
         }
     }));
 
     render(){
         return(
-            <AppBar position = "static">
+            <AppBar position = "static" style={{width: "auto"}}>
                 <Toolbar>
                     <Typography>
                         SKEvents

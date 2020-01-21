@@ -47,13 +47,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        <AppNav/>
-        <Overlay />
-        
-        <Eventgroup />
+        <AppNav />
         <AddEvent />
-        <WeekView/>
-        
+        <div className="image">
+          <img src="skevents1.png" width="200px" height="200px"></img>
+        </div>
+        <Eventgroup />
+        <WeekView />
+
       </div>
     );
   }

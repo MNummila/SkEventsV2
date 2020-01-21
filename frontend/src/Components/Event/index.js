@@ -14,11 +14,12 @@ const Event = props => {
         variant="primary"
         className="event-box"
         onClick={() => setModalShow(true)}
+        style={{textTransform: "none"}}
       >
         <div key={props.eventid}>
           <p>{props.eventname}</p>
 
-          <p>{moment(props.eventdate).format("DD. MMMM HH:mm")}</p>
+          <p>{moment(props.eventdate).format("DD. MMMM YYYY HH:mm")}</p>
         </div>
       </Button>
 

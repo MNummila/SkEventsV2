@@ -30,6 +30,8 @@ font-size: 2rem;
   margin-left: 10px;
   width: 300px;
   background-color: orange;
+  
+  
 }
 .eventgr {
   text-align: center;
@@ -38,9 +40,12 @@ font-size: 2rem;
 }
 .box {
   display: flex;
-  
+  justify-content: center;
   flex-wrap: wrap;
-  margin-left: 24%;
+  align-items: center;
+  margin-left: 15%;
+  width: auto;
+  margin-bottom: 100px;
   
   
   
@@ -52,7 +57,7 @@ font-size: 2rem;
 
 .addEv{
   margin-top: 1%;
-  margin-left: 80%;
+  margin-left: auto;
   margin-bottom: 5%;
 }
 #addEventButton {
@@ -67,7 +72,7 @@ font-size: 2rem;
   margin-bottom: 5% ;
 }
 .image {
-  margin-left: 10%;
+  text-align: center;
   margin-top: 10px;
 }
 

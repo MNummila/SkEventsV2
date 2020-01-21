@@ -86,7 +86,7 @@ componentDidUpdate() {}
               <FormGroup>
                 <Label for="date"></Label>
                 <Input
-                  type="date"
+                  type="datetime-local"
                   name="date"
                   onChange={e => this.setState({ eventdate: e.target.value })}
                 ></Input>
