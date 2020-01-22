@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import { AppBar, Toolbar, Typography} from "@material-ui/core";
 import Login from "../Login";
 import Logout from "../Logout";
 import { makeStyles } from "@material-ui/core";

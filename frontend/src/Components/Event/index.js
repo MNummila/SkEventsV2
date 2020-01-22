@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Overlay from "../Overlay";
 import moment from "moment";
-import {Button, ButtonGroup} from "@material-ui/core";
+import {Button} from "@material-ui/core";
 
 const Event = props => {
   const [modalShow, setModalShow] = useState(false);
@@ -33,6 +33,7 @@ const Event = props => {
         eventdate={props.eventdate}
         eventplace={props.eventplace}
         eventdescription={props.eventdescription}
+        eventDelete = {props.deleteEvent}
       />
       </div>
 

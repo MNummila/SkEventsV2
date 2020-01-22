@@ -60,6 +60,7 @@ const Overlay = props => {
           </div>
         </CardContent>
       </Card>
+      <Button>Delete</Button>
     </Modal>
   );
 };

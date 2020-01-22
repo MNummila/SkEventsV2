@@ -55,8 +55,8 @@ class AddEvent extends Component {
       })
     })
       .then(res => res.json())
-      .then(data => {
-        console.log("Success");
+      .then(res => {
+          console.log("Success")
       })
 
       .catch(err => {
