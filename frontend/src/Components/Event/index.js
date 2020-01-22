@@ -10,7 +10,7 @@ const Event = props => {
 
   return (
     //Laatikko missä näkyy tapahtuman nimi ja päivä
-    <ButtonGroup  id = "boxesGroup" style={{backgroundColor: "orange"}}>
+    <div id = "boxesGroup">
       <Button
         variant="primary"
         className="event-box"
@@ -34,7 +34,8 @@ const Event = props => {
         eventplace={props.eventplace}
         eventdescription={props.eventdescription}
       />
-    </ButtonGroup>
+      </div>
+
   );
 };
 

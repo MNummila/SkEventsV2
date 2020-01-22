@@ -11,13 +11,15 @@ import {
   ModalHeader
 } from "reactstrap";
 
+import {Redirect} from 'react-router';
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userName: "",
       password: "",
-      show: false
+      show: false,
+      redirect: false
     };
 
     this.handleSumbit = this.handleSumbit.bind(this);
@@ -53,6 +55,7 @@ class Login extends Component {
         localStorage.setItem("refreshToken", data.refreshToken);
         this.setState({ show: false });
       })
+      .then(() => this.setState({redirect: true}))
 
       .catch(err => {
         console.error(err);
@@ -60,6 +63,10 @@ class Login extends Component {
   }
 
   render() {
+    const {redirect} = this.state.redirect;
+    if (redirect) {
+      return <Redirect to='/home'/> 
+    }
     return (
       <div className="login">
         <Button

@@ -58,6 +58,7 @@ font-size: 2rem;
   width: 80%;
   overflow: auto;
   margin-bottom: 100px;
+  
 
   
   
@@ -82,7 +83,7 @@ font-size: 2rem;
   
 }
 .login {
-  margin-bottom: 5% ;
+  margin: 10px;
 }
 .image {
   text-align: center;
@@ -91,6 +92,7 @@ font-size: 2rem;
 
 #boxesGroup {
   margin: 10px 10px 10px 10px;
+  background-color: orange;
 }
 
 
