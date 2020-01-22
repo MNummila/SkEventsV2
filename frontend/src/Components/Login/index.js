@@ -72,7 +72,10 @@ class Login extends Component {
         <Button
           id="loginButton"
           onClick={this.showModal}
-          style={{ backgroundColor: "orange" }}
+          style={{
+            backgroundColor: "orange",
+            boxShadow: "1px 1px 5px grey"
+            }}
         >
           Kirjaudu sisään
         </Button>

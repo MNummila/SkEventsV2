@@ -18,11 +18,9 @@ export default class AppNav extends Component {
     return (
       <AppBar position="static" style={{ width: "auto" }}>
         <Toolbar>
-          <Typography>SKEvents</Typography>
-          
+          <img src="SKEventsHarmaa250.png" width="125" height="125"></img>
             <Login />
-            <Logout />
-            
+            <Logout />     
         </Toolbar>
       </AppBar>
     );
