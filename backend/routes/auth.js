@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 // dev ratkaisu siirrä homma tietokantaan
 let refreshTokens = [];
