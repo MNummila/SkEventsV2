@@ -84,6 +84,7 @@ font-size: 2rem;
 }
 .login {
   margin: 10px;
+  margin-left: auto;
 }
 .image {
   text-align: center;

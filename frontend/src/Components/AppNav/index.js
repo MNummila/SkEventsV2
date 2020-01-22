@@ -19,10 +19,10 @@ export default class AppNav extends Component {
       <AppBar position="static" style={{ width: "auto" }}>
         <Toolbar>
           <Typography>SKEvents</Typography>
-          <Button color="inherit" style={{ marginLeft: "auto" }}>
+          
             <Login />
             <Logout />
-          </Button>
+            
         </Toolbar>
       </AppBar>
     );
