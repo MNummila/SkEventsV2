@@ -27,7 +27,10 @@ class Logout extends Component {
         <Button
           id="logoutButton"
           onClick={this.handleLogout}
-          style={{ backgroundColor: "orange" }}
+          style={{
+            backgroundColor: "orange",
+            boxShadow: "1px 1px 5px grey"
+            }}
         >
           Kirjaudu ulos
         </Button>
