@@ -72,7 +72,7 @@ class AddEvent extends Component {
       <div className="addEv">
         <Button outline color="secondary" /*id="addEventButton"*/ style={{
         }} onClick={this.showModal}>
-        +
+        Lisää tapahtuma
         </Button>
         {/*Form avautuu sivun päälle*/}
         <Modal isOpen={this.state.show} toggle={this.hideModal}>
