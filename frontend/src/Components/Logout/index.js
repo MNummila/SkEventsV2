@@ -17,6 +17,8 @@ class Logout extends Component {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
       })
+      .then(window.alert("Olet kirjautunut ulos!"))
+      .then(window.location.reload())
       .catch(err => {
         console.error(err);
       });

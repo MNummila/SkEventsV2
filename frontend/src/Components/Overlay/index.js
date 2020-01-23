@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button, Modal, ModalFooter } from "react-bootstrap";
 import moment from "moment";
 import { Card, CardContent, CardMedia, makeStyles } from "@material-ui/core";
@@ -29,16 +29,22 @@ const deleteData = id => {
   fetch(`http://localhost:9000/home/` + id, {
     method: "DELETE",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken")
       
     },
     body: JSON.stringify({
       "_id": id
     })
   })
-    .then(res => res.json)
+    .then(res => res.json())
+    .then(() => id.onHide)
     .then(window.location.reload())
-    .then(id.onHide)
+    
+    .catch(err => {
+      console.log(err);
+      window.alert("Et ole kirjautunut sisään!")
+    })
 }
 
 
@@ -82,7 +88,7 @@ const Overlay = props => {
         </CardContent>
       </Card>
       <div key={props.eventid} >
-      <button onClick={() => deleteData(props.eventid)}>Delete</button>
+      <Button onClick={() => deleteData(props.eventid)} style={{width: "100%"}}>Delete</Button>
       </div>
     </Modal>
   );

@@ -17,7 +17,6 @@ const Event = props => {
 
     }}>
       <Button
-        variant="primary"
         className="event-box"
         onClick={() => setModalShow(true)}
         style={{textTransform: "none"}}

@@ -3,7 +3,6 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Eventgroup from "./Components/Eventgroup";
 import AddEvent from "./Components/AddEvent/index";
-import WeekView from "./Components/WeekEvents";
 import AppNav from "./Components/AppNav";
 
 class App extends Component {
@@ -50,7 +49,7 @@ class App extends Component {
           <img src="SKEvents250.png" width="250" height="250" alt=""></img>
         </div>
         <Eventgroup />
-        <WeekView /> 
+
         <AddEvent />
       </div>
     );

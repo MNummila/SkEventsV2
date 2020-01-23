@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Event from "../Event";
 import { ButtonGroup } from "reactstrap";
-import { Button } from "react-bootstrap";
+
 
 class Eventgroup extends Component {
   constructor(props) {

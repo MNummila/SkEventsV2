@@ -63,6 +63,7 @@ class AddEvent extends Component {
 
       .catch(err => {
         console.error(err);
+        window.alert("Et ole kirjautunut sisään! Kirjaudu ensi sisään!");
       });
   }
 

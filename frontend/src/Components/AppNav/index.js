@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppBar, Toolbar, Typography} from "@material-ui/core";
+import { AppBar, Toolbar} from "@material-ui/core";
 import Login from "../Login";
 import Logout from "../Logout";
 import { makeStyles } from "@material-ui/core";
@@ -18,7 +18,7 @@ export default class AppNav extends Component {
     return (
       <AppBar position="static" style={{ width: "auto" }}>
         <Toolbar>
-          <img src="SKEventsHarmaa250.png" width="125" height="125"></img>
+          <img src="SKEventsHarmaa250.png" width="125" height="125" alt=""></img>
             <Login />
             <Logout />     
         </Toolbar>
