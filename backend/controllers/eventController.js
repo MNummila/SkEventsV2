@@ -1,6 +1,7 @@
 let EventThing = require("../models/eventthing");
 const { body, validationResult } = require("express-validator");
 const { sanitizeBody } = require("express-validator");
+let async = require("async");
 
 exports.index = function(req, res, next) {
   res.render("index", { title: "testataan" });
@@ -71,3 +72,12 @@ exports.event_create_post = [
     }
   }
 ];
+//DELETE event
+exports.event_delete = function(req,res,next){
+  async.parallel({
+    eventname : function(callback){
+      EventThing.findByIdAndDelete(req.body._id).exec(callback)
+    }
+  })
+  res.send("success delete");
+};
