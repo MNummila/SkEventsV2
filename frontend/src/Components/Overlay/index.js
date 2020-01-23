@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalFooter } from "react-bootstrap";
 import moment from "moment";
 import { Card, CardContent, CardMedia, makeStyles } from "@material-ui/core";
@@ -24,12 +24,33 @@ const useStyles = makeStyles(theme => ({
   avatar: {}
 }));
 
+const deleteData = id => {
+  
+  fetch(`http://localhost:9000/home/` + id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+      
+    },
+    body: JSON.stringify({
+      "_id": id
+    })
+  })
+    .then(res => res.json)
+    .then(window.location.reload())
+    .then(id.onHide)
+}
+
+
+
 const Overlay = props => {
   const classes = useStyles();
+  
+  
 
   return (
     <Modal
-      {...props}
+      {...props}  
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
@@ -60,7 +81,9 @@ const Overlay = props => {
           </div>
         </CardContent>
       </Card>
-      <Button>Delete</Button>
+      <div key={props.eventid} >
+      <button onClick={() => deleteData(props.eventid)}>Delete</button>
+      </div>
     </Modal>
   );
 };

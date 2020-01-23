@@ -74,6 +74,7 @@ exports.event_create_post = [
 ];
 //DELETE event
 exports.event_delete = function(req,res,next){
+  console.log(req.body);
   async.parallel({
     eventname : function(callback){
       EventThing.findByIdAndDelete(req.body._id).exec(callback)

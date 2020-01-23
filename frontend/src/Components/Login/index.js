@@ -56,6 +56,7 @@ class Login extends Component {
         this.setState({ show: false });
       })
       .then(() => this.setState({redirect: true}))
+      .then(window.alert("Olet kirjautunut sisään!"))
 
       .catch(err => {
         console.error(err);

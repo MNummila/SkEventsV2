@@ -36,6 +36,7 @@ class AddEvent extends Component {
     this.setState(prevState => ({
       show: !prevState.show
     }));
+    window.location.reload();
   };
 
   //Request POST

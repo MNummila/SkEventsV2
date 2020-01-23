@@ -37,7 +37,9 @@ const Event = props => {
             fontSize: "1.15em",
             color: "#003366"
           }}>{moment(props.eventdate).format("DD. MMMM YYYY HH:mm")}</p>
+          <br/>
         </div>
+      
       </Button>
 
       <Overlay
@@ -48,7 +50,7 @@ const Event = props => {
         eventdate={props.eventdate}
         eventplace={props.eventplace}
         eventdescription={props.eventdescription}
-        eventDelete = {props.deleteEvent}
+        
       />
       </div>
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Event from "../Event";
 import { ButtonGroup } from "reactstrap";
+import { Button } from "react-bootstrap";
 
 class Eventgroup extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Eventgroup extends Component {
       events: []
     };
     this.callAPI();
+    this.handleSumbit.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +27,28 @@ class Eventgroup extends Component {
       })
       .catch(err => err);
   }
+
+  handleSumbit(id) {
+
+    fetch('http://localhost:9000/home/' + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+        
+      },
+      body: JSON.stringify({
+        "_id": id
+      }),
+
+    })
+      .then(res => res.json()
+      )
+
+
+      .then(console.log("success"))
+
+
+  }
   render() {
     return (
       <div className="eventgr">
@@ -32,6 +56,7 @@ class Eventgroup extends Component {
           {this.state.events.map((event, i) => {
             return (
               <ButtonGroup key={i}>
+
                 <div key={event._id}>
                   <Event
                     eventid={event._id}
@@ -39,12 +64,18 @@ class Eventgroup extends Component {
                     eventdate={event.eventdate}
                     eventdescription={event.eventdescription}
                     eventplace={event.eventplace}
+
                   />
                 </div>
+                
               </ButtonGroup>
-            );
+
+            )
+
           })}
+          
         </div>
+        
       </div>
     );
   }
