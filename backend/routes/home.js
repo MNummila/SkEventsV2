@@ -17,9 +17,14 @@ router.post(
   auth_controller.verify_token,
   event_controller.event_create_post
 );
-/*
-router.post('/',function(req,res,next){
-    res.send('post req to router ok');
-});*/
 
+//DELETE yksi tapahtuma
+router.delete("/", event_controller.event_delete);
+
+
+/*
+router.delete("/",function(req,res,next){
+  res.send("delete request");
+});
+*/
 module.exports = router;
