@@ -19,7 +19,7 @@ router.post(
 );
 
 //DELETE yksi tapahtuma
-router.delete("/:id/", event_controller.event_delete);
+router.delete("/:id/", auth_controller.verify_token, event_controller.event_delete);
 
 
 /*

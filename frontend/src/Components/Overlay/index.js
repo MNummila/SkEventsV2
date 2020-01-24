@@ -43,7 +43,7 @@ const deleteData = id => {
     
     .catch(err => {
       console.log(err);
-      window.alert("Et ole kirjautunut sisään!")
+      //window.alert("Et ole kirjautunut sisään!")
     })
 }
 
